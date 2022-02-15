@@ -1,10 +1,14 @@
 from django.db import models
 
+
 # Create your models here.
 
 
 class ProductCategory(models.Model):
     name = models.CharField(max_length=25, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Product(models.Model):
@@ -14,3 +18,6 @@ class Product(models.Model):
     price = models.IntegerField()
     quantity = models.IntegerField()
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name}, {self.image}, {self.description}, {self.price}, {self.quantity}, {self.category}'
