@@ -18,6 +18,7 @@ class Product(models.Model):
     price = models.IntegerField()
     quantity = models.IntegerField()
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+    status = models.CharField(max_length=35)
 
     def __str__(self):
         return f'{self.name}, {self.image}, {self.description}, {self.price}, {self.quantity}, {self.category}'
